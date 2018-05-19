@@ -6,7 +6,7 @@ set -e
 cat <<EOF > /etc/ppp/chap-secrets
 # Secrets for authentication using PAP
 # client    server      secret      acceptable local IP addresses
-$VPN_USERNAME   *   $VPN_PASSWORD   *
+$VPN_USER   *   $VPN_PASSWORD   *
 EOF
 
 cat /etc/ppp/chap-secrets
