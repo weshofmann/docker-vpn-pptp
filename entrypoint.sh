@@ -1,6 +1,15 @@
 #!/bin/sh
 
+set -x
 set -e
+
+cat <<EOF > /etc/ppp/chap-secrets
+# Secrets for authentication using PAP
+# client    server      secret      acceptable local IP addresses
+$VPN_USERNAME   *   $VPN_PASSWORD   *
+EOF
+
+cat /etc/ppp/chap-secrets
 
 # enable IP forwarding
 sysctl -w net.ipv4.ip_forward=1
